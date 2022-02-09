@@ -14,11 +14,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Test Homeworks
-      run: |
-        cargo test --test week1_test
-        cargo test --test week2_test
-        cargo test --test week3_test
-        cargo test --test week4_test
-        cargo test --test week5_test
-        cargo test --test week6_test
+    - name: Homework - Week 1
+      run: cargo test --test week1_test
+    - name: Homework - Week 2
+      run: cargo test --test week2_test
+    - name: Homework - Week 3
+      run: cargo test --test week3_test
+    - name: Homework - Week 4
+      run: cargo test --test week4_test
+    - name: Homework - Week 5
+      run: cargo test --test week5_test
+    - name: Homework - Week 6
+      run: cargo test --test week6_test
