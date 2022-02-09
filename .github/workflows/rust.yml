@@ -1,0 +1,24 @@
+name: Rust
+
+on:
+  pull_request:
+    branches: [ main ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Test Homeworks
+      run: |
+        cargo test --test week1_test
+        cargo test --test week2_test
+        cargo test --test week3_test
+        cargo test --test week4_test
+        cargo test --test week5_test
+        cargo test --test week6_test
