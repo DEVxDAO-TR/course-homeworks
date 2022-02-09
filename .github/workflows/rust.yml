@@ -8,37 +8,37 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  test1:
+  Week1:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Homework - Week 1
       run: cargo test --package week1
-  test2:
+  Week2:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Homework - Week 2
       run: cargo test --package week2
-  test3:
+  Week3:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Homework - Week 3
       run: cargo test --package week3
-  test4:
+  Week4:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Homework - Week 4
       run: cargo test --package week4
-  test5:
+  Week5:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Homework - Week 5
       run: cargo test --package week5
-  test6:
+  Week6:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
