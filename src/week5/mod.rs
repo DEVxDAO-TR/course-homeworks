@@ -7,4 +7,5 @@ pub fn find_nth_prime_numbers( nums: &[u32], tx: &Sender<u64> ) {
     // rx yani Receiver test bölümünde sayıları otomatik toplayacak.
 
     // Write Your Code Here
+    unimplemented!()
 }
