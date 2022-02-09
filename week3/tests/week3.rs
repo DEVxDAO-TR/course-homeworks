@@ -1,7 +1,7 @@
 
 #[cfg(test)]
 mod week3_tests {
-    use course_homeworks::week3;
+    use week3;
 
     #[test]
     fn person_to_json() {

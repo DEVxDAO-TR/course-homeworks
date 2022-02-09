@@ -1,7 +1,8 @@
 #[cfg(test)]
 mod week1_tests {
     use std::f64::consts::PI;
-    use course_homeworks::week1;
+    use week1;
+    
     #[test]
     fn hello() {
         assert_eq!(week1::hello("Emin"), String::from("Hello Emin!"));

@@ -1,7 +1,7 @@
 
 #[cfg(test)]
 mod week4_tests {
-    use course_homeworks::week4;
+    use week4;
 
     #[test]
     fn even_list() {

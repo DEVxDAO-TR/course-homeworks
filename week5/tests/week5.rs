@@ -1,7 +1,7 @@
 
 #[cfg(test)]
 mod week5_tests {
-    use course_homeworks::week5;
+    use week5;
     use std::sync::mpsc::{channel, Sender, Receiver};
 
     #[test]

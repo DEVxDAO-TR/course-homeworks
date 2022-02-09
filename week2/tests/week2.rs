@@ -1,7 +1,7 @@
 
 #[cfg(test)]
 mod week2_tests {
-    use course_homeworks::week2;
+    use week2;
 
     #[test]
     fn to_letter_grade() {

@@ -1,7 +1,7 @@
 
 #[cfg(test)]
 mod week6_tests {
-    use course_homeworks::week6;
+    use week6;
 
     use std::time::Duration;    
     use std::thread;
