@@ -1,13 +1,19 @@
+use std::f64::consts;
+
 pub fn hello(name: &str) -> String {
-    String::from("") // Write Your Code Here
+    format!("Hello {}!", name)
 }
 
 pub fn make_it_double(num: i32) -> i32 {
-    0 // Write Your Code Here
+    if num % 2 == 0 {
+        num*2
+    }else{
+        num
+    }
 }
 
 pub fn multiply_pi(num: f64) -> f64 {
-    0.0 // Write Your Code Here
+    num * consts::PI
 }
 
 #[cfg(test)]
