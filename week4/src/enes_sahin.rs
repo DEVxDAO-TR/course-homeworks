@@ -1,6 +1,3 @@
-// Subject: Fibonacci, Iterator, Vec
-
-
 use std::vec::Vec;
 
 
@@ -12,6 +9,35 @@ pub fn double_list(v : Vec<i32>) -> Vec<i32> {
     v.iter().map(|x| x * 2).collect()
 }
 
+
+pub struct MultiFibonacci {
+    first: u32,
+    second: u32,
+}
+
+impl Default for MultiFibonacci {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
+impl MultiFibonacci {
+    pub fn new() -> Self {
+        Self {first: 1, second: 2}
+    }
+} 
+
+impl Iterator for MultiFibonacci {
+    type Item = u32;
+
+    fn next(&mut self) -> Option<Self::Item> {
+        let result = self.first * self.second;
+        self.first = self.second;
+        self.second = result;
+        Some(result)
+    }
+
+}
 
 #[cfg(test)]
 mod week4_tests {
@@ -42,6 +68,6 @@ mod week4_tests {
 
     #[test]
     fn multiply_fibonacci() {
-        //let mut mf_iter = super::MultiFibonacci::new();
+        super::MultiFibonacci::new();
     }
 }
