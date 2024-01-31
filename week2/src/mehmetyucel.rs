@@ -21,11 +21,8 @@ enum LogLevel {
     Err,
 }
 
-impl Display for LogLevel {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(f, "[{}]", self)
-    }
-}
+
+
 
 fn log(loglevel: LogLevel, msg: &str) -> String {
     match loglevel {
@@ -106,7 +103,7 @@ mod week2_tests {
         assert_eq!(p1.to_string(), String::from("Mehmet, 24, Erkek"));
 
         let p2 = Person {
-            name: String::from("Merve"),
+            name: String::from("merve"),
             age: 18,
             gender: Gender::Female,
         };
