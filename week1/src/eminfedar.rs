@@ -5,11 +5,7 @@ pub fn hello(name: &str) -> String {
 }
 
 pub fn make_it_double(num: i32) -> i32 {
-    if num % 2 == 0 {
-        num*2
-    }else{
-        num
-    }
+    num*2
 }
 
 pub fn multiply_pi(num: f64) -> f64 {
