@@ -15,14 +15,17 @@ pub struct Person {
 
 #[cfg(test)]
 mod week3_tests {
+    use crate::furkan::Person;
+    use crate::furkan::Gender;
+    
     #[test]
     fn person_to_json() {
-        let p1 = week3::Person {
+        let p1 = Person {
             name: String::from("Emin"),
             age: 18,
-            gender: week3::Gender::Male,
+            gender: Gender::Male,
         };
-        let p2 = week3::Person {
+        let p2 = Person {
             name: String::from("Ayşe"),
             age: 25,
             gender: week3::Gender::Female,
