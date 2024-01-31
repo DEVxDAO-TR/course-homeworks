@@ -1,6 +1,8 @@
-automod::dir!("src/");
+automod::dir!(pub "src/");
 
 // Tests template:
+#[cfg(test)]
+#[cfg(target_os = "windows")] // burayı kendi kodunuzda silin
 mod week1_tests {
     use super::*;
     use std::f64::consts::PI;
