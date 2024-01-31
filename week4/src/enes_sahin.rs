@@ -68,6 +68,13 @@ mod week4_tests {
 
     #[test]
     fn multiply_fibonacci() {
-        super::MultiFibonacci::new();
+        let mut mf_iter = super::MultiFibonacci::new();
+
+        assert_eq!(mf_iter.next().unwrap(), 2);
+        assert_eq!(mf_iter.next().unwrap(), 4);
+        assert_eq!(mf_iter.next().unwrap(), 8);
+        assert_eq!(mf_iter.next().unwrap(), 32);
+        assert_eq!(mf_iter.next().unwrap(), 256);
+        assert_eq!(mf_iter.next().unwrap(), 8192);
     }
 }
