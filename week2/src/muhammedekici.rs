@@ -17,8 +17,6 @@ pub fn to_letter_grade(num:u8) -> String {
 
 pub enum LogLevel {
     Msg,
-    Debug,
-    Info,
     Warn,
     Err    
 }
@@ -26,9 +24,7 @@ pub enum LogLevel {
 pub fn log(level:LogLevel, msg: &str) -> String {
     match level {
         LogLevel::Msg => format!("[MSG]: {}",msg),
-        LogLevel::Debug => format!("[DEBUG]: {}",msg),
         LogLevel::Warn=> format!("[WARN]: {}",msg),
-        LogLevel::Info => format!("[INFO]: {}",msg),
         LogLevel::Err => format!("[ERR]: {}",msg),
     }
 
