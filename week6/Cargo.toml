@@ -7,3 +7,4 @@ edition = "2021"
 
 [dependencies]
 async-std = "1.10.0"
+automod = "1.0"
