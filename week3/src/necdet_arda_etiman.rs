@@ -14,7 +14,6 @@ pub struct Person {
 }
 
 #[cfg(test)]
-#[cfg(target_os = "windows")] // burayı kendi kodunuzda silin
 mod week3_tests {
     use super::*;
     #[test]
