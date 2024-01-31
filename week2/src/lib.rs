@@ -1,3 +1,3 @@
-automod::dir!("src/");
+automod::dir!(pub "src/");
 
 // Test Templates
