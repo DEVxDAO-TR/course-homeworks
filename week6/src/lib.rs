@@ -5,8 +5,6 @@ automod::dir!(pub "src/");
 #[cfg(target_os = "windows")] // burayı kendi kodunuzda silin
 #[cfg(test)]
 mod week6_tests {
-    use week6;
-
     use std::io::{self, Read, Write};
     use std::net::{Shutdown, TcpStream};
     use std::thread;
@@ -33,7 +31,8 @@ mod week6_tests {
 
     #[test]
     fn test_server() {
-        thread::spawn(|| week6::start_server().unwrap());
+        // Start the server and wait until it's ready
+        super::start_server().unwrap();
 
         let client1 = thread::spawn(client);
         let client2 = thread::spawn(client);
