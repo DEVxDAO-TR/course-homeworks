@@ -1,5 +1,3 @@
-#[cfg(test)]
-
 // Homework - 1
 pub fn to_letter_grade(num: u8) -> String {
     match num {
@@ -55,6 +53,7 @@ impl fmt::Display for Person {
     }
 }
 
+#[cfg(test)]
 mod week2_tests {
     use super::*;
 
