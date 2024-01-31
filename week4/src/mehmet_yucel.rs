@@ -8,15 +8,13 @@ pub mod week4 {
     }
 
     pub struct MultiFibonacci {
-        current: usize,
-        a: usize,
-        b: usize,
+        a: i32,
+        b: i32,
     }
 
     impl MultiFibonacci {
         pub fn new() -> MultiFibonacci {
             MultiFibonacci {
-                current: 0,
                 a: 1,
                 b: 2,
             }
@@ -24,18 +22,19 @@ pub mod week4 {
     }
 
     impl Iterator for MultiFibonacci {
-        type Item = usize;
+        type Item = i32; 
 
         fn next(&mut self) -> Option<Self::Item> {
-            let result = self.a * self.b;
+            let result = self.a; 
+            let new_result = self.a + self.b;
             self.a = self.b;
-            self.b = result;
-            self.current += 1;
+            self.b = new_result;
 
             Some(result)
         }
     }
 }
+
 
 #[cfg(test)]
 mod tests {
