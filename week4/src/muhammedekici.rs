@@ -22,19 +22,12 @@ impl Iterator for MultiFibonacci {
 
     fn next(&mut self)-> Option<Self::Item>{
         let sonuc:u32 = self.first * self.second; 
-        if sonuc <=8192 {
             self.first = self.second;
             self.second = sonuc;
             Some(sonuc)
-        }
-        else{
-            None
-        }
     }
     
 }
-
-
 
 #[cfg(test)]
 mod week4_tests {
