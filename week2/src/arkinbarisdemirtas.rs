@@ -1,65 +1,55 @@
-use std::fmt::{self, Display};
+use std::fmt::Display;
 
-pub fn to_letter_grade(grade: u32) -> String {
-    match grade {
-        90..=100 => String::from("AA"),
-        85..=89 => String::from("BA"),
-        80..=84 => String::from("BB"),
-        75..=79 => String::from("CB"),
-        70..=74 => String::from("CC"),
-        60..=69 => String::from("DC"),
-        50..=59 => String::from("DD"),
-        40..=49 => String::from("FD"),
-        0..=39 => String::from("FF"),
-        _ => String::from("Invalid grade"),
+pub fn to_letter_grade(num:u8) -> String {
+    match num {
+        90..=100=> "AA".to_string(),
+        85..=89=> "BA".to_string(),
+        80..=84=> "BB".to_string(),
+        75..=79=> "CB".to_string(),
+        70..=74=> "CC".to_string(),
+        60..=69=> "DC".to_string(),
+        50..=59=> "DD".to_string(),
+        40..=49=> "FD".to_string(),
+        0..=39=> "FF".to_string(),
+        _ => "FF".to_string()
     }
 }
 
 pub enum LogLevel {
     Msg,
     Warn,
-    Err,
+    Err    
 }
 
-impl Display for LogLevel {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        match self {
-            LogLevel::Err => write!(f, "[ERR]"),
-            LogLevel::Msg => write!(f, "[MSG]"),
-            LogLevel::Warn => write!(f, "[WARN]"),
-        }
+pub fn log(level:LogLevel, msg: &str) -> String {
+    match level {
+        LogLevel::Msg => format!("[MSG]: {}",msg),
+        LogLevel::Warn=> format!("[WARN]: {}",msg),
+        LogLevel::Err => format!("[ERR]: {}",msg),
     }
-}
 
-pub fn log(loglevel: LogLevel, msg: &str) -> String {
-    format!("{}: {}", loglevel, msg)
 }
-
-struct Person {
-    name: String,
-    age: u8,
-    gender: Gender,
-}
-
-pub enum Gender {
+pub enum Gender{
     Male,
-    Female,
+    Female
 }
 
-impl Display for Gender {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        match self {
-            Gender::Male => write!(f, "Erkek"),
-            Gender::Female => write!(f, "Kadin"),
-        }
-    }
+struct Person{
+    name: String,
+    age: u32,
+    gender:Gender
 }
 
-impl Display for Person {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(f, "{}, {}, {}", self.name, self.age, self.gender)
+impl Display for Person{
+    
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let gender_string:&str = match self.gender {
+            Gender::Male => "Erkek",
+            Gender::Female => "Kadın"
+        };
+        write!(f,"{}, {}, {}", self.name, self.age, gender_string)
     }
-}
+} 
 
 #[cfg(test)]
 mod week2_tests {
@@ -110,6 +100,6 @@ mod week2_tests {
             age: 18,
             gender: Gender::Female,
         };
-        assert_eq!(p2.to_string(), String::from("Ayşe, 18, Kadin"));
+        assert_eq!(p2.to_string(), String::from("Ayşe, 18, Kadın"));
     }
 }
