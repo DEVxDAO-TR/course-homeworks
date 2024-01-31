@@ -28,7 +28,7 @@ mod week3_tests {
         let p2 = Person {
             name: String::from("Ayşe"),
             age: 25,
-            gender: week3::Gender::Female,
+            gender: Gender::Female,
         };
 
         let p1_json_str = serde_json::to_string(&p1).unwrap();
