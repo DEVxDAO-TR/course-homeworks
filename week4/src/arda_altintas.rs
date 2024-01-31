@@ -34,11 +34,6 @@ impl Iterator for MultiFibonacci {
 }
 
 
-pub fn multiply_fibonacci() -> Vec<i32>{
-    let mut mf_iter = MultiFibonacci::new();
-    mf_iter.collect()
-}
-
 
 #[cfg(test)]
 mod week4_tests {
