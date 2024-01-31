@@ -1,3 +1,5 @@
+use serde::{Deserialize, Serialize};
+
 // Write Your Code Here
 #[derive(Serialize, Deserialize, PartialEq, Debug)]
 pub enum Gender {
