@@ -26,9 +26,9 @@ mod week1_tests {
 
     #[test]
     fn hello_test() {
-        assert_eq!(hello("Emin"), String::from("Hello Emin!"));
-        assert_eq!(hello(""), String::from("Hello !"));
-        assert_eq!(hello("world"), String::from("Hello world!"));
+        assert_eq!(hello("Emin"), String::from("Hello, Emin!"));
+        assert_eq!(hello(""), String::from("Hello, !"));
+        assert_eq!(hello("world"), String::from("Hello, world!"));
     }
 
     #[test]
