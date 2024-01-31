@@ -1,1 +1,1 @@
-pub mod eminfedar;
+automod::dir!("src/");
