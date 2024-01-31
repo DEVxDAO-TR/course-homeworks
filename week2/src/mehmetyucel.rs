@@ -106,7 +106,7 @@ mod week2_tests {
         assert_eq!(p1.to_string(), String::from("Mehmet, 24, Erkek"));
 
         let p2 = Person {
-            name: String::from("Mehmet"),
+            name: String::from("Merve"),
             age: 18,
             gender: Gender::Female,
         };
