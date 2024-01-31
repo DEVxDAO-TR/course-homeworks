@@ -1,9 +1,71 @@
-automod::dir!(pub "src/");
+/// AA = 90-100
+/// BA = 85-89
+/// BB = 80-84
+/// CB = 75-79
+/// CC = 70-74
+/// DC = 60-69
+/// DD = 50-59
+/// FD = 40-49
+/// FF = 0-39
+pub fn to_letter_grade(num: u8) -> String {
+    match num {
+        90..=100 => String::from("AA"),
+        85..=89 => String::from("BA"),
+        80..=84 => String::from("BB"),
+        75..=79 => String::from("CB"),
+        70..=74 => String::from("CC"),
+        60..=69 => String::from("DC"),
+        50..=59 => String::from("DD"),
+        40..=49 => String::from("FD"),
+        0..=39 => String::from("FF"),
+        _ => String::from("Not allowed!"),
+    }
+}
 
-// Test Templates
+pub enum LogLevel {
+    Msg,
+    Warn,
+    Err,
+}
+
+pub fn log(level: LogLevel, msg: &str) -> String {
+    match level {
+        LogLevel::Msg => format!("[MSG]: {msg}"),
+        LogLevel::Warn => format!("[WARN]: {msg}"),
+        LogLevel::Err => format!("[ERR]: {msg}"),
+    }
+}
+
+use std::fmt::Formatter;
+use std::fmt::Result;
+
+pub enum Gender {
+    Male,
+    Female,
+}
+impl std::fmt::Display for Gender {
+    fn fmt(&self, f: &mut Formatter<'_>) -> Result {
+        match self {
+            Gender::Male => write!(f, "Erkek"),
+            Gender::Female => write!(f, "Kadın"),
+        }
+    }
+}
+
+pub struct Person {
+    pub name: String,
+    pub age: u8,
+    pub gender: Gender,
+}
+
+impl std::fmt::Display for Person {
+    fn fmt(&self, f: &mut Formatter<'_>) -> Result {
+        write!(f, "{}, {}, {}", self.name, self.age, self.gender)
+    }
+}
+
 #[cfg(test)]
-#[cfg(target_os = "windows")] // burayı kendi kodunuzda silin
-mod week2_tests {
+mod tests {
     use super::*;
 
     #[test]
