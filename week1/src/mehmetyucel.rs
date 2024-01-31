@@ -16,11 +16,6 @@ pub fn multiply_pi(num: f32) -> f32 {
     num * std::f64::consts::PI
 }
 
-fn main() {
-    let number = 3.0;
-    let result = multiply_pi(number);
-    println!("{} multiplied by π is: {}", number, result);
-}
 
 //-----------------------------------------------------------------
 
