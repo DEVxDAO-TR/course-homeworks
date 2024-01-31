@@ -1,6 +1,4 @@
-use std::fmt::format;
-
-automod::dir!("src/");
+use std::fmt::Display;
 
     pub fn to_letter_grade(num:u32) -> String{
             match num {
@@ -17,44 +15,46 @@ automod::dir!("src/");
             }
     }
 
-    enum LogLevel {
+    pub enum LogLevel {
        Msg,
        Warn,
        Err
     }
 
     impl Display for LogLevel {
-        fn fmt(&self, f: &mut std:fmt::Formatter<'_>) -> std::fmt::Result {
+       fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
             match self {
                 LogLevel::Msg => write!(f, "MSG"),
                 LogLevel::Warn => write!(f, "WARN"),
-                LogLevel::Err => write!(f, "ERR")
+                LogLevel::Err => write!(f, "ERR"),    
             }
-        }
+       }
     }
 
 
     pub fn log(level: LogLevel, msg: &str) -> String {
-        format!("{}, {}", level, msg)
+        format!("[{}]: {}", level, msg)
     }
+
+
   
 
-    enum Gender {
+    pub enum Gender {
         Male,
         Female,
     }
 
-    struct Person { 
+    pub struct Person { 
         name: String,
         age: u32,
         gender: Gender,
     }
 
-    impl Gender {   
-        fn to_string(&self) -> String {
+    impl Display for Gender {   
+        fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
             match self {
-                Gender::Male => String::from("Male"),
-                Gender::Female => String::from("Female"),
+                Gender::Male => write!(f, "Male"),
+                Gender::Female => write!(f, "Female"),
             }
         }
     }
@@ -77,7 +77,7 @@ automod::dir!("src/");
 
 // Test Templates
 #[cfg(test)]
-mod week2_tests {
+mod enderkus_tests {
         use super::*;
 
         #[test]
@@ -96,6 +96,7 @@ mod week2_tests {
             assert_eq!(log(LogLevel::Err, "hata"), String::from("[ERR]: hata"));
         }
 
+        #[test]
         fn person_display_test(){
             let p1 = Person::new(String::from("John"), 20, Gender::Male);
             let p2: Person = Person::new(String::from("Mary"), 30, Gender::Female);
