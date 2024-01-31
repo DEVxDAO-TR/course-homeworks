@@ -25,12 +25,12 @@ pub mod week4 {
         type Item = i32; 
 
         fn next(&mut self) -> Option<Self::Item> {
-            let result = self.a; 
-            let new_result = self.a + self.b;
+            
+            let new_result = self.a * self.b;
             self.a = self.b;
             self.b = new_result;
 
-            Some(result)
+            Some(new_result)
         }
     }
 }
