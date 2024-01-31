@@ -1,60 +1,71 @@
+use std::fmt::Display;
+
+pub fn to_letter_grade(num:u8) -> String {
+    match num {
+        90..=100=> "AA".to_string(),
+        85..=89=> "BA".to_string(),
+        80..=84=> "BB".to_string(),
+        75..=79=> "CB".to_string(),
+        70..=74=> "CC".to_string(),
+        60..=69=> "DC".to_string(),
+        50..=59=> "DD".to_string(),
+        40..=49=> "FD".to_string(),
+        0..=39=> "FF".to_string(),
+        _ => "FF".to_string()
+    }
+}
+
+pub enum LogLevel {
+    Msg,
+    Warn,
+    Err    
+}
+
+pub fn log(level:LogLevel, msg: &str) -> String {
+    match level {
+        LogLevel::Msg => format!("[MSG]: {}",msg),
+        LogLevel::Warn=> format!("[WARN]: {}",msg),
+        LogLevel::Err => format!("[ERR]: {}",msg),
+    }
+
+}
+pub enum Gender{
+    Male,
+    Female
+}
+
+struct Person{
+    name: String,
+    age: u32,
+    gender:Gender
+}
+
+impl Display for Person{
+    
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let gender_string:&str = match self.gender {
+            Gender::Male => "Erkek",
+            Gender::Female => "Kadın"
+        };
+        write!(f,"{}, {}, {}", self.name, self.age, gender_string)
+    }
+} 
+
+#[cfg(test)]
 mod week2_tests {
-
-
-    #[derive(Debug, PartialEq)]
-    enum LogLevel {
-        Msg,
-        Warn,
-        Err,
-    }
-
-    fn log(level: LogLevel, message: &str) -> String {
-        match level {
-            LogLevel::Msg => format!("[MSG]: {}", message),
-            LogLevel::Warn => format!("[WARN]: {}", message),
-            LogLevel::Err => format!("[ERR]: {}", message),
-        }
-    }
-
-    #[derive(Debug, PartialEq)]
-    enum Gender {
-        Male,
-        Female,
-    }
-
-    struct Person {
-        name: String,
-        age: u32,
-        gender: Gender,
-    }
-
-    impl ToString for Person {
-        fn to_string(&self) -> String {
-            let gender_str = match self.gender {
-                Gender::Male => "Erkek",
-                Gender::Female => "Kadın",
-            };
-            format!("{}, {}, {}", self.name, self.age, gender_str)
-        }
-    }
-
-    fn to_letter_grade(score: u32) -> String {
-        match score {
-            90..=100 => String::from("AA"),
-            85..=89 => String::from("BA"),
-            80..=84 => String::from("BB"),
-            75..=79 => String::from("CB"),
-            70..=74 => String::from("CC"),
-            60..=69 => String::from("DC"),
-            50..=59 => String::from("DD"),
-            40..=49 => String::from("FD"),
-            0..=39 => String::from("FF"),
-            _ => String::from("Invalid"),
-        }
-    }
+    use super::*;
 
     #[test]
     fn to_letter_grade_test() {
+        // AA = 90-100
+        // BA = 85-89
+        // BB = 80-84
+        // CB = 75-79
+        // CC = 70-74
+        // DC = 60-69
+        // DD = 50-59
+        // FD = 40-49
+        // FF = 0-39
         assert_eq!(to_letter_grade(100), String::from("AA"));
         assert_eq!(to_letter_grade(90), String::from("AA"));
         assert_eq!(to_letter_grade(88), String::from("BA"));
