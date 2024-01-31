@@ -3,27 +3,17 @@ pub fn hello(name: &str) -> String {
     format!("Hello, {}!", name)
 }
 
-fn main() {
-    let name = "Mehmet";
-    let greeting = hello(name);
-    println!("{}", greeting);
-}
 //--------------------------------------------------------
 pub fn make_it_double(num: i32) -> i32 {
     num * 2
 }
 
-fn main() {
-    let number = 5;
-    let doubled_number = make_it_double(number);
-    println!("Double of {}: {}", number, doubled_number);
-}
 //-----------------------------------------------
 
 use std::f64::consts::PI;
 
-pub fn multiply_pi(num: f64) -> f64 {
-    num * PI
+pub fn multiply_pi(num: f32) -> f32 {
+    num * std::f64::consts::PI
 }
 
 fn main() {
@@ -41,15 +31,15 @@ mod week1_tests {
 
     #[test]
     fn hello_test() {
-        assert_eq!(hello("Mehmet"), String::from("Selam Mehmet!"));
-        assert_eq!(hello(""), String::from("hii !"));
-        assert_eq!(hello("world"), String::from("hiii world!"));
+        assert_eq!(hello("Emin"), String::from("Hello Emin!"));
+        assert_eq!(hello(""), String::from("Hello !"));
+        assert_eq!(hello("world"), String::from("Hello world!"));
     }
 
     #[test]
     fn make_it_double_test() {
         assert_eq!(make_it_double(2), 4);
-        assert_eq!(make_it_double(5), 5);
+        assert_eq!(make_it_double(5), 10);
         assert_eq!(make_it_double(-2), -4);
     }
 
