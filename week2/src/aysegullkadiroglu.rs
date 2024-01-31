@@ -59,7 +59,7 @@ impl fmt::Display for Person {
 
 // Test Templates
 #[cfg(test)]
-#[cfg(target_os = "windows")] // burayı kendi kodunuzda silin
+
 mod week2_tests {
     use super::*;
 
