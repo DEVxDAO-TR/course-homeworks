@@ -1,6 +1,6 @@
 automod::dir!(pub "src/");
 
-#[cfg(target_os = "windows")] // burayı kendi kodunuzda silin
+#[cfg(target_os = "none")] // burayı kendi kodunuzda silin
 #[cfg(test)]
 mod week4_tests {
     use week4;
