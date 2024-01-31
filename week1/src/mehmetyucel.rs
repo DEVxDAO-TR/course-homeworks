@@ -12,7 +12,7 @@ pub fn make_it_double(num: i32) -> i32 {
 
 use std::f64::consts::PI;
 
-pub fn multiply_pi(num: f32) -> f32 {
+pub fn multiply_pi(num: f64) -> f64 {
     num * std::f64::consts::PI
 }
 
