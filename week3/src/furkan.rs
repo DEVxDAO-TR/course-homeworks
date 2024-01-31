@@ -15,8 +15,6 @@ pub struct Person {
 
 #[cfg(test)]
 mod week3_tests {
-    use week3;
-
     #[test]
     fn person_to_json() {
         let p1 = week3::Person {
