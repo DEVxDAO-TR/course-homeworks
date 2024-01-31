@@ -1,4 +1,4 @@
-mod week4 {
+pub mod week4 {
 
     pub fn even_list(vec: Vec<i32>) -> Vec<i32> {
         vec.into_iter().filter(|&x| x % 2 == 0).collect()
