@@ -1,5 +1,6 @@
 use std::fmt::{self, Display};
 
+#[warn(dead_code)]
 fn to_letter_grade(grade: u32) -> String {
     match grade {
         90..=100 => String::from("AA"),
@@ -15,6 +16,7 @@ fn to_letter_grade(grade: u32) -> String {
     }
 }
 
+#[allow(dead_code)]
 enum LogLevel {
     Msg,
     Warn,
@@ -23,16 +25,17 @@ enum LogLevel {
 
 impl Display for LogLevel {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(f, "[{}]", self)
+        match self {
+            LogLevel::Err => write!(f, "[ERR]"),
+            LogLevel::Msg => write!(f, "[MSG]"),
+            LogLevel::Warn => write!(f, "[WARN]"),
+        }
     }
 }
 
+#[allow(dead_code)]
 fn log(loglevel: LogLevel, msg: &str) -> String {
-    match loglevel {
-        LogLevel::Err => format!("[ERR]: {}", msg),
-        LogLevel::Msg => format!("[MSG]: {}", msg),
-        LogLevel::Warn => format!("[WARN]: {}", msg),
-    }
+    format!("{}: {}", loglevel, msg)
 }
 
 struct Person {
@@ -41,6 +44,7 @@ struct Person {
     gender: Gender,
 }
 
+#[allow(dead_code)]
 enum Gender {
     Male,
     Female,
