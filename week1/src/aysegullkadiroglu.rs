@@ -1,9 +1,17 @@
-automod::dir!(pub "src/");
+pub fn hello(name: &str) -> String {
+    format!("Hello {}!", name) // Write Your Code Here
+}
 
-// Tests template:
+pub fn make_it_double(num: i32) -> i32 {
+    num * 2
+}
+
+pub fn multiply_pi(num: f64) -> f64 {
+    num * std::f64::consts::PI
+}
+
 #[cfg(test)]
-#[cfg(target_os = "windows")] // burayı kendi kodunuzda silin
-mod week1_tests {
+mod wecargoek1_tests {
     use super::*;
     use std::f64::consts::PI;
 

@@ -1,15 +1,23 @@
-automod::dir!(pub "src/");
+pub fn hello(name: &str) -> String {
+    format!("Hello {}!", name)
+}
 
-// Tests template:
+pub fn make_it_double(num: i32) -> i32 {
+    num * 2
+}
+
+pub fn multiply_pi(num: f64) -> f64 {
+    num * std::f64::consts::PI
+}
+
 #[cfg(test)]
-#[cfg(target_os = "windows")] // burayı kendi kodunuzda silin
 mod week1_tests {
     use super::*;
     use std::f64::consts::PI;
 
     #[test]
     fn hello_test() {
-        assert_eq!(hello("Emin"), String::from("Hello Emin!"));
+        assert_eq!(hello("alp"), String::from("Hello alp!"));
         assert_eq!(hello(""), String::from("Hello !"));
         assert_eq!(hello("world"), String::from("Hello world!"));
     }
