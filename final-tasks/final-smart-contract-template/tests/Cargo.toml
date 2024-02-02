@@ -1,0 +1,18 @@
+[package]
+name = "tests"
+version = "1.0.0"
+authors = ["CasperLabs <https://discord.com/invite/Q38s3Vh>"]
+edition = "2021"
+
+[dependencies]
+casper-engine-test-support = { version = "7.0", features = ["test-support"] }
+casper-execution-engine = "7.0"
+casper-types = "4.0"
+
+[[bin]]
+name = "integration-tests"
+path = "src/integration_tests.rs"
+bench = false
+doctest = false
+
+[workspace]
