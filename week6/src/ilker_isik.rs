@@ -1,8 +1,41 @@
-automod::dir!(pub "src/");
+use async_std::task;
+use async_std::io;
+use async_std::prelude::*;
+use async_std::net::{TcpListener, TcpStream};
 
-// Test Templates
-#[cfg(test)]
-#[cfg(target_os = "windows")] // burayı kendi kodunuzda silin
+/// Process incoming connection
+async fn process_connection(stream: TcpStream) -> io::Result<()> {
+    let mut reader = stream.clone();
+    let mut writer = stream;
+    io::copy(&mut reader, &mut writer).await?;
+
+    Ok(())
+}
+
+
+/// Echo server listening on port 22222
+pub fn start_server() -> io::Result<()> {
+    // Create a listener
+    // Wait for completion
+    let listener = task::block_on(async {
+        TcpListener::bind("127.0.0.1:22222").await
+    })?;
+
+    task::spawn(async move {
+        let mut incoming = listener.incoming();
+
+        while let Some(stream) = incoming.next().await {
+            let stream = stream.unwrap();
+            task::spawn(async {
+                process_connection(stream).await.unwrap();
+            });
+        }
+    });
+
+    Ok(())
+}
+
+
 #[cfg(test)]
 mod week6_tests {
     use std::io::{self, Read, Write};
