@@ -18,3 +18,5 @@ test = false
 codegen-units = 1
 lto = true
 
+[workspace]
+
